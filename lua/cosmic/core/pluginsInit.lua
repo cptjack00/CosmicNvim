@@ -11,8 +11,35 @@ return packer.startup(function()
     'nvim-lua/plenary.nvim',
   })
 
+  use({
+    'tami5/lspsaga.nvim',
+    config = function ()
+      require('cosmic.plugins.lspsaga')
+    end,
+  })
+  use({
+    'folke/trouble.nvim',
+    config = function()
+      require('cosmic.plugins.trouble')
+    end,
+  })
+
+  use({
+      'folke/which-key.nvim',
+      config = function ()
+         require('cosmic.plugins.which-key')
+      end
+  })
+
+  use({
+      'sbdchd/neoformat',
+  })
   -- initialize theme plugins
   require('cosmic.theme.plugins').init(use, user_config)
+
+    use({
+        'rhysd/vim-clang-format',
+    })
 
   use({
     'rcarriga/nvim-notify',
@@ -22,6 +49,14 @@ return packer.startup(function()
     after = user_config.theme,
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'notify'),
   })
+
+    use({
+      'akinsho/bufferline.nvim',
+      after = 'nvim-web-devicons',
+      config = function()
+        require('cosmic.plugins.bufferline')
+       end,
+   })
 
   -- theme stuff
   use({ -- statusline
@@ -35,7 +70,19 @@ return packer.startup(function()
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'galaxyline'),
   })
 
-  -- file explorer
+  -- Better Buffer Delete
+  use({
+        'moll/vim-bbye',
+    })
+
+   use({
+      "max397574/better-escape.nvim",
+      event = "InsertCharPre",
+        config = function()
+          require('cosmic.plugins.better-escape')
+        end,
+   })
+  -- truefile explorer
   use({
     'kyazdani42/nvim-tree.lua',
     config = function()
@@ -50,6 +97,10 @@ return packer.startup(function()
       'NvimTreeToggle',
     },
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'nvim-tree'),
+  })
+
+  use({
+      'easymotion/vim-easymotion',
   })
 
   use({
@@ -89,6 +140,19 @@ return packer.startup(function()
       },
     },
   })
+
+   use({
+      "lukas-reineke/indent-blankline.nvim",
+      event = "BufRead",
+        config = function()
+           require('cosmic.plugins.blankline')
+        end
+   })
+
+    -- telescope extension
+    use({
+        'NvChad/extensions',
+    })
 
   -- autocompletion
   use({
@@ -154,6 +218,7 @@ return packer.startup(function()
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'terminal'),
   })
 
+
   -- file navigation
   use({
     'nvim-telescope/telescope.nvim',
@@ -172,6 +237,28 @@ return packer.startup(function()
     event = 'BufWinEnter',
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'telescope'),
   })
+
+    use({
+       "majutsushi/tagbar",
+       cmd = {
+           "TagbarToggle",
+       }
+    })
+
+   use({
+       "tzachar/cmp-tabnine",
+       run = "./install.sh",
+       after = "nvim-cmp",
+   })
+
+    use({
+       "github/copilot.vim",
+       after = "nvim-cmp",
+    })
+
+    use({
+       "psliwka/vim-smoothie",
+    })
 
   -- session/project management
   use({
@@ -215,6 +302,14 @@ return packer.startup(function()
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'comment-nvim'),
   })
 
+  use({
+      'ahmedkhalf/project.nvim',
+      config = function ()
+          require('project_nvim')
+      end,
+  })
+
+
   -- todo highlights
   use({
     'folke/todo-comments.nvim',
@@ -234,6 +329,14 @@ return packer.startup(function()
       require('colorizer').setup()
     end,
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'colorizer'),
+  })
+  -- Debugging
+  use({
+    "mfussenegger/nvim-dap",
+    -- event = "BufWinEnter",
+    config = function()
+      require("cosmic.plugins.dap")
+    end,
   })
 
   if user_config.add_plugins and not vim.tbl_isempty(user_config.add_plugins) then

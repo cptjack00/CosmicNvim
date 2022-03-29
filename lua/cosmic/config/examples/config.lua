@@ -77,11 +77,6 @@ local config = {
   nvim_tree = {},
   -- Add additional plugins
   add_plugins = {
-    'ggandor/lightspeed.nvim',
-    {
-      'romgrk/barbar.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
-    },
   },
   -- Disable plugins enabled by CosmicNvim
   disable_builtin_plugins = {
@@ -105,3 +100,4 @@ local config = {
 }
 
 return config
+

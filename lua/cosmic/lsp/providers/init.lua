@@ -58,10 +58,12 @@ lsp_installer.on_server_ready(function(server)
     opts = u.merge(opts, require('cosmic.lsp.providers.tsserver'))
   elseif server.name == 'jsonls' then
     opts = u.merge(opts, require('cosmic.lsp.providers.jsonls'))
-  elseif server.name == 'pyright' then
-    opts = u.merge(opts, require('cosmic.lsp.providers.pyright'))
+  elseif server.name == 'pylsp' then
+    opts = u.merge(opts, require('cosmic.lsp.providers.pylsp'))
   elseif server.name == 'sumneko_lua' then
     opts = u.merge(opts, require('cosmic.lsp.providers.sumneko_lua'))
+  elseif server.name == 'clangd' then
+    opts = u.merge(opts, require('cosmic.lsp.providers.clangd'))
   end
 
   -- override options if user definds them

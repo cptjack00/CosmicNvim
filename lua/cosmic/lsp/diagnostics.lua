@@ -28,11 +28,6 @@ vim.diagnostic.config(u.merge({
     header = { icons.debug .. ' Diagnostics:', 'Normal' },
     source = 'always',
   },
-  virtual_text = {
-    spacing = 4,
-    source = 'always',
-    severity = {
-      min = vim.diagnostic.severity.HINT,
-    },
-  },
+  virtual_text = false,
 }, config.diagnostic or {}))
+

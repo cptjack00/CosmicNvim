@@ -16,6 +16,8 @@ local default_cmp_opts = {
     end,
   },
   mapping = {
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -27,32 +29,6 @@ local default_cmp_opts = {
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
-    }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, {
-      'i',
-      's',
-    }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, {
-      'i',
-      's',
     }),
   },
   documentation = {
@@ -68,17 +44,19 @@ local default_cmp_opts = {
     { name = 'buffer' },
     { name = 'luasnip' },
     { name = 'path' },
+    { name = 'cmp_tabnine' },
   }),
   formatting = {
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = string.format('%s %s', icons.kind_icons[vim_item.kind], vim_item.kind)
       vim_item.menu = ({
-        nvim_lsp = '[lsp]',
-        luasnip = '[snip]',
-        buffer = '[buf]',
-        path = '[path]',
-        nvim_lua = '[nvim_api]',
+        nvim_lsp = '[LSP]',
+        luasnip = '[SNIP]',
+        buffer = '[BUF]',
+        path = '[PATH]',
+        nvim_lua = '[NVIM_API]',
+        cmp_tabnine = '[TAB]',
       })[entry.source.name]
       return vim_item
     end,

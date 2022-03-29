@@ -18,18 +18,28 @@ map('n', '<leader>cf', ':cfdo %s/')
 map('n', '<leader>cp', ':cprev<cr>zz')
 map('n', '<leader>cn', ':cnext<cr>zz')
 
--- buffer navigation
-map('n', '<leader>bp', ':bprev<cr>')
-map('n', '<leader>bn', ':bnext<cr>')
-map('n', '<leader>bd', ':bdelete<cr>')
-
--- tab navigation
-map('n', '<leader>tp', ':tabprevious<cr>')
-map('n', '<leader>tn', ':tabnext<cr>')
-map('n', '<leader>td', ':tabclose<cr>')
-
 -- resize with arrows
 map('n', '<C-Up>', ':resize -2<CR>')
 map('n', '<C-Down>', ':resize +2<CR>')
 map('n', '<C-Left>', ':vertical resize -2<CR>')
 map('n', '<C-Right>', ':vertical resize +2<CR>')
+
+-- window movement
+map('n', '<C-h>', '<C-w>h')
+map('n', '<C-l>', '<C-w>l')
+map('n', '<C-k>', '<C-w>k')
+map('n', '<C-j>', '<C-w>j')
+
+-- save files
+map('n', '<C-s>', ':w <CR>')
+
+-- format files
+map('n', '<leader>cfm', ':ClangFormat<CR>')
+
+-- terminals
+map("n", '<leader>h', ":execute 15 .. 'new +terminal' | let b:term_type = 'hori' | startinsert <CR>")
+map("n", '<leader>v', ":execute 'vnew +terminal' | let b:term_type = 'vert' | startinsert <CR>")
+map("n", '<leader>w', ":execute 'terminal' | let b:term_type = 'wind' | startinsert <CR>")
+map("n", '<leader>W', ":Telescope terms <CR>")
+
+map("n", "<leader>tg", ":TagbarToggle <CR>")

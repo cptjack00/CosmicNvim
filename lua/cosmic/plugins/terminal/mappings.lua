@@ -1,7 +1,8 @@
 local map = require('cosmic.utils').map
 
-map('n', '<C-l>', ':FloatermToggle<CR>')
-map('t', '<C-l>', [[<C-\><C-n>]])
+map('n', '<C-t>', ':FloatermToggle<CR>')
+map('t', 'jk', [[<C-\><C-n>]])
+map('t', 'JK', [[<C-\><C-n>:lua require('cosmic.utils').close_buffer() <CR>])
 map('t', '<C-w>l', [[<C-\><C-n>:FloatermNext<CR>]])
 map('t', '<C-w>h', [[<C-\><C-n>:FloatermPrev<CR>]])
 map('t', '<C-w>n', [[<C-\><C-n>:FloatermNew<CR>]])

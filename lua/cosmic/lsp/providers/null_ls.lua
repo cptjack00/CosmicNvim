@@ -22,9 +22,35 @@ if not config_opts.default_cosmic_sources then
       env = {
         PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
       },
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "jsonc",
+        "vue",
+        "css",
+        "scss",
+        "less",
+        "graphql",
+        "yaml",
+        "html",
+        "markdown",
+        "solidity",
+      },
+      extra_args = {
+        "--no-semi",
+        "--single-quote",
+        "--trailing-comma",
+        "--jsx-single-quote",
+      },
     }),
+    null_ls.builtins.formatting.yapf,
     null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.clang_format,
     null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.diagnostics.flake8,
   }, config_opts.sources or {})
 end
 

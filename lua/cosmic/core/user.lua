@@ -11,20 +11,21 @@ local default_config = {
   add_plugins = {},
   theme = 'tokyonight',
   lsp = {
-    format_on_save = true, -- true/false or table of filetypes {'.ts', '.js',}
+    format_on_save = false, -- true/false or table of filetypes {'.ts', '.js',}
     rename_notification = true,
     servers = {
       jsonls = {
-        format = false,
+        format = true,
       },
-      pyright = true,
+      pylsp = true,
       sumneko_lua = {
-        format = false,
+        format = true,
       },
       html = true,
       tsserver = {
-        format = false,
+        format = true,
       },
+      clangd = true,
     },
   },
 }

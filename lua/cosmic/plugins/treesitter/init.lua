@@ -2,26 +2,13 @@ local config = require('cosmic.core.user')
 local u = require('cosmic.utils')
 
 local defaults = {
-  ensure_installed = {
-    'css',
-    'html',
-    'javascript',
-    'jsdoc',
-    'json',
-    'lua',
-    'markdown',
-    'php',
-    'python',
-    'scss',
-    'tsx',
-    'typescript',
-  },
+  ensure_installed = "maintained",
   highlight = {
     enable = true,
     use_languagetree = true,
   },
   indent = {
-    enable = true,
+    enable = false,
   },
   autotag = {
     enable = true,

@@ -7,7 +7,7 @@ function M.init(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_map(bufnr, 'n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
   buf_map(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-  buf_map(bufnr, 'n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>')
+  buf_map(bufnr, 'n', 'gI', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>')
   buf_map(bufnr, 'n', 'gt', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>')
   buf_map(bufnr, 'n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
   buf_map(bufnr, 'n', 'gn', '<cmd>lua require("cosmic-ui").rename()<cr>')
@@ -15,19 +15,20 @@ function M.init(client, bufnr)
   -- diagnostics
   buf_map(bufnr, 'n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
   buf_map(bufnr, 'n', ']g', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-  buf_map(bufnr, 'n', 'ge', '<cmd>lua vim.diagnostic.open_float(nil, { scope = "line", })<cr>')
+  -- buf_map(bufnr, 'n', 'ge', '<cmd>lua vim.diagnostic.open_float(nil, { scope = "line", })<cr>')
+  buf_map(bufnr, 'n', 'ge', '<cmd>Lspsaga show_line_diagnostics<cr>')
   buf_map(bufnr, 'n', '<leader>ge', '<cmd>Telescope diagnostics bufnr=0<cr>')
 
   -- hover
-  buf_map(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+  buf_map(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>')
 
   -- code actions
   buf_map(bufnr, 'n', '<leader>ga', '<cmd>lua require("cosmic-ui").code_actions()<cr>')
   buf_map(bufnr, 'v', '<leader>ga', '<cmd>lua require("cosmic-ui").range_code_actions()<cr>')
 
   -- formatting
-  buf_map(bufnr, 'n', '<leader>gf', '<cmd>lua vim.lsp.buf.formatting()<cr>')
-  buf_map(bufnr, 'v', '<leader>gf', '<cmd>lua vim.lsp.buf.range_formatting()<cr>')
+  buf_map(bufnr, 'n', '<leader>fm', '<cmd>lua vim.lsp.buf.formatting()<cr>')
+  buf_map(bufnr, 'v', '<leader>fm', '<cmd>lua vim.lsp.buf.range_formatting()<cr>')
 
   -- signature help
   buf_map(bufnr, 'n', '<C-K>', '<cmd>lua require("lsp_signature").signature()<cr>')

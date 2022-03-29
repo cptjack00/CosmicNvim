@@ -41,8 +41,7 @@ local args = {
   },
   view = {
     width = 35,
-    number = true,
-    relativenumber = true,
+    number = false,
   },
   git = {
     ignore = true,
