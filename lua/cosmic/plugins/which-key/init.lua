@@ -113,6 +113,7 @@ local mappings = {
   ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle Undo Tree" },
 
   p = {
     name = "Packer",

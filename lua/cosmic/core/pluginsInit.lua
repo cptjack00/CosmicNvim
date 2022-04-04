@@ -277,6 +277,10 @@ return packer.startup(function()
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'auto-session'),
   })
 
+  use({
+    'mbbill/undotree',
+  })
+
   -- lang/syntax stuff
   use({
     'nvim-treesitter/nvim-treesitter',
