@@ -254,7 +254,13 @@ local mappings = {
     d = {'<cmd>DeleteSession<CR>', 'Delete Session'},
   },
 
-  ["r"] = { "<cmd>NvimTreeRefresh<cr>", "Refresh Tree" }
+  ["r"] = { "<cmd>NvimTreeRefresh<cr>", "Refresh Tree" },
+  z = {
+    name = "Zen Mode",
+    a = {'<cmd>TZAtaraxis<CR>', "Attaraxis"},
+    f = {'<cmd>TZFocus<CR>', "Focus"},
+    m = {'<cmd>TZMinimalist<CR>', "Minimalist"},
+  }
   -- t = {
   --   name = "Terminal",
   --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },

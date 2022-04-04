@@ -286,6 +286,10 @@ return packer.startup(function()
   })
 
   use({
+    "Pocco81/TrueZen.nvim",
+  })
+
+  use({
     "lervag/vimtex",
     config = function()
       require('cosmic.plugins.vimtex')
