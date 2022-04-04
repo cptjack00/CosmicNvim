@@ -1,3 +1,4 @@
+local M = {}
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -73,13 +74,13 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-local vopts = {
-  mode = "v", -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+M.texopts = {
+  mode = "n", -- NORMAL mode
+  prefix = ",",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
 }
 
 local mappings = {
@@ -266,5 +267,23 @@ local mappings = {
   -- },
 }
 
+
+M.tex_mappings = {
+  ["l"] = { "<Plug>(vimtex-compile)", "Toggle Compiler"},
+  ["q"] = { "<Plug>(vimtex-log)", "Log" },
+  ["v"] = { "<Plug>(vimtex-view)", "View"},
+  ["K"] = { "<Plug>(vimtex-stop-all)", "Stop All" },
+  ["I"] = { "<Plug>(vimtex-info)", "Info"},
+  ["s"] = { "<Plug>(vimtex-status-all)", "Status"},
+  ["t"] = { "<Plug>(vimtex-toc-toggle)", "Table of Contents Toggle"},
+  ["e"] = { "<Plug>(vimtex-errors)", "Errors"},
+  ["i"] = { "<Plug>(vimtex-imaps-list)", "Imaps List"},
+  ["c"] = { "<Plug>(vimtex-clean)", "Clean"},
+  ["o"] = { "<Plug><vimtex-compile-output", "Compile output"},
+  ["r"] = { ":VimtexReload<CR>", "Reload"},
+  ["m"] = { ":VimtexToggleMain<CR>", "Toggle main"}
+}
 require("which-key").setup(setup)
+-- require("which-key").register(tex_mappings, texopts)
 require("which-key").register(mappings, opts)
+return M

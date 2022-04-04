@@ -27,7 +27,7 @@ g.nvim_tree_respect_buf_cwd = 1
 
 -- set up args
 local args = {
-  auto_close = true,
+  -- auto_close = true,
   diagnostics = {
     enable = true,
   },

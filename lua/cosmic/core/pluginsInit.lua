@@ -281,6 +281,16 @@ return packer.startup(function()
     'mbbill/undotree',
   })
 
+  use({
+    "tpope/vim-surround",
+  })
+
+  use({
+    "lervag/vimtex",
+    config = function()
+      require('cosmic.plugins.vimtex')
+    end,
+  })
   -- lang/syntax stuff
   use({
     'nvim-treesitter/nvim-treesitter',

@@ -13,3 +13,6 @@ for _, mod in ipairs(cosmic_modules) do
     error(('Error loading %s...\n\n%s'):format(mod, err))
   end
 end
+
+local g = vim.g
+g.copilot_no_tab_map = true

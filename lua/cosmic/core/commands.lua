@@ -11,6 +11,7 @@ vim.cmd([[
   command! CosmicReloadSync lua require('cosmic.utils').reload_user_config_sync()
   command! LspFormat lua vim.lsp.buf.formatting()
   command! DisableVirtualText lua vim.diagnostic.config({ virtual_text = false })
+  command! SetTexMapping lua WhichKeyTex()
 ]])
 
 -- uncomment this if you want to open nvim with a dir
@@ -30,3 +31,12 @@ vim.cmd [[ autocmd Filetype cpp,c,python setlocal expandtab tabstop=4 shiftwidth
 --
 --
 vim.cmd [[ au BufEnter * DisableVirtualText ]]
+
+vim.cmd [[ au BufEnter * imap <silent><script><expr> <C-J> copilot#Accept("\<CR>") ]]
+vim.cmd [[ autocmd Filetype tex,bib SetTexMapping ]]
+
+local wkl = require("which-key")
+local wkli = require("cosmic.plugins.which-key")
+function WhichKeyTex()
+  wkl.register(wkli.tex_mappings, wkli.texopts)
+end
