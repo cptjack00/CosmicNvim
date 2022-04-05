@@ -37,9 +37,9 @@ g.dashboard_custom_section = {
     command = 'Telescope grep_string',
   },
   last_session = {
-    description = { icons.clock .. ' Load Session        <leader>sl' },
+    description = { icons.clock .. ' Load Session        <leader>Sr' },
     command = 'lua vim.cmd(":silent RestoreSession")',
   },
 }
 
-g.dashboard_custom_footer = { '💫 github.com/CosmicNvim/CosmicNvim' }
+g.dashboard_custom_footer = { '💫 github.com/cptjack00/CosmicNvim' }

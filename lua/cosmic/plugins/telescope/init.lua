@@ -114,7 +114,7 @@ require('telescope').setup(u.merge({
       mappings = default_mappings,
     }),
     find_files = u.merge(opts_flex, {
-      prompt_title = '✨ Search Project ✨',
+      prompt_title = '✨ Find Files ✨',
       mappings = default_mappings,
       hidden = true,
     }),

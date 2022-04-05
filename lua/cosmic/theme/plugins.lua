@@ -32,7 +32,7 @@ function M.init(use, config)
     config = function()
       local catppuccin = require('catppuccin')
         catppuccin.setup({
-          transparent_background = true,
+          transparent_background = false,
           styles = {
             comments = 'italic',
             functions = 'NONE',
@@ -49,6 +49,26 @@ function M.init(use, config)
               show_root = true,
               transparent_panel = true,
             },
+            which_key = true,
+            lsp_trouble = true,
+            native_lsp = {
+              enabled = true,
+              underlines = {
+                errors = "underline",
+                hints = "underline",
+                warnings = "underline",
+                information = "underline",
+              },
+            },
+            lsp_saga = true,
+            indent_blankline = {
+              enabled = true,
+              colored_indent_levels = true,
+            },
+            bufferline = true,
+            notify = true,
+            barbar = true,
+            markdown = true,
           },
         })
       vim.cmd('colorscheme catppuccin')
