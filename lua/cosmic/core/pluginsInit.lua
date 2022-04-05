@@ -297,9 +297,9 @@ return packer.startup(function()
     "preservim/vim-markdown",
   })
 
-  use({
-    "vimwiki/vimwiki",
-  })
+  -- use({
+  --   "vimwiki/vimwiki",
+  -- })
 
   use({
     "lervag/vimtex",
