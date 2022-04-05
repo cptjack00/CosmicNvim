@@ -28,6 +28,7 @@ Full featured native LSP functionality!
 - 🚨 Statusline diagnostics
 - 🔧 Formatting/linting thanks to [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 
+
 #### Additional features
 
 - Custom rename and code action popups via [Cosmic-UI](https://github.com/CosmicNvim/cosmic-ui)

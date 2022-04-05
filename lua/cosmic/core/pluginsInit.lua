@@ -290,6 +290,18 @@ return packer.startup(function()
   })
 
   use({
+    "godlygeek/tabular",
+  })
+
+  use({
+    "preservim/vim-markdown",
+  })
+
+  use({
+    "vimwiki/vimwiki",
+  })
+
+  use({
     "lervag/vimtex",
     config = function()
       require('cosmic.plugins.vimtex')

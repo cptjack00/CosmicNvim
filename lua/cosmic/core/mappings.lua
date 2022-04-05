@@ -37,9 +37,6 @@ map('n', '<C-s>', ':w <CR>')
 map('n', '<leader>cfm', ':ClangFormat<CR>')
 
 -- terminals
-map("n", '<leader>h', ":execute 15 .. 'new +terminal' | let b:term_type = 'hori' | startinsert <CR>")
-map("n", '<leader>v', ":execute 'vnew +terminal' | let b:term_type = 'vert' | startinsert <CR>")
-map("n", '<leader>w', ":execute 'terminal' | let b:term_type = 'wind' | startinsert <CR>")
 map("n", '<leader>W', ":Telescope terms <CR>")
 
 map("n", "<leader>tg", ":TagbarToggle <CR>")

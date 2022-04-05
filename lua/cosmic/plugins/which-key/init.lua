@@ -109,7 +109,6 @@ local mappings = {
     },
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -287,7 +286,8 @@ M.tex_mappings = {
   ["c"] = { "<Plug>(vimtex-clean)", "Clean"},
   ["o"] = { "<Plug><vimtex-compile-output", "Compile output"},
   ["r"] = { ":VimtexReload<CR>", "Reload"},
-  ["m"] = { ":VimtexToggleMain<CR>", "Toggle main"}
+  ["m"] = { ":VimtexToggleMain<CR>", "Toggle main"},
+  ["S"] = { ":VimtexCompileSS<CR>", "Compile Single Short"}
 }
 require("which-key").setup(setup)
 -- require("which-key").register(tex_mappings, texopts)

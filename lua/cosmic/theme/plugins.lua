@@ -19,7 +19,7 @@ function M.init(use, config)
     'folke/tokyonight.nvim',
     as = 'tokyonight',
     config = function()
-      vim.g.tokyonight_style = 'night'
+      vim.g.tokyonight_style = 'storm'
       vim.g.tokyonight_sidebars = { 'qf' }
       vim.cmd('color tokyonight')
     end,
@@ -31,23 +31,26 @@ function M.init(use, config)
     as = 'catppuccin',
     config = function()
       local catppuccin = require('catppuccin')
-      catppuccin.setup({
-        styles = {
-          comments = 'italic',
-          functions = 'NONE',
-          keywords = 'NONE',
-          strings = 'NONE',
-          variables = 'NONE',
-        },
-        integrations = {
-          gitsigns = true,
-          telescope = true,
-          dashboard = true,
-          nvimtree = {
-            enabled = true,
+        catppuccin.setup({
+          transparent_background = true,
+          styles = {
+            comments = 'italic',
+            functions = 'NONE',
+            keywords = 'italic',
+            strings = 'NONE',
+            variables = 'italic',
           },
-        },
-      })
+          integrations = {
+            gitsigns = true,
+            telescope = true,
+            dashboard = true,
+            nvimtree = {
+              enabled = true,
+              show_root = true,
+              transparent_panel = true,
+            },
+          },
+        })
       vim.cmd('colorscheme catppuccin')
     end,
     disable = config.theme ~= 'catppuccin',
@@ -89,7 +92,36 @@ function M.init(use, config)
     'EdenEast/nightfox.nvim',
     as = 'nightfox',
     config = function()
-      vim.cmd('color nightfox')
+      require('nightfox').setup({
+        options = {
+          -- Compiled file's destination location
+          compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+          compile_file_suffix = "_compiled", -- Compiled file suffix
+          transparent = false,    -- Disable setting background
+          terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+          dim_inactive = false,   -- Non focused panes set to alternative background
+          styles = {              -- Style to be applied to different syntax groups
+            comments = "NONE",    -- Value is any valid attr-list value `:help attr-list`
+            functions = "NONE",
+            keywords = "NONE",
+            numbers = "NONE",
+            strings = "NONE",
+            types = "NONE",
+            variables = "NONE",
+          },
+          inverse = {             -- Inverse highlight for different types
+            match_paren = false,
+            visual = false,
+            search = false,
+          },
+          modules = {             -- List of various plugins and additional options
+            -- ...
+          },
+        }
+      })
+
+      -- setup must be called before loading
+      vim.cmd('color terafox')
     end,
     disable = config.theme ~= 'nightfox',
   })

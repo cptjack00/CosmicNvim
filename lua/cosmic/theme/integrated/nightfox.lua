@@ -1,18 +1,18 @@
-local theme = require('nightfox.colors')
-local themeColors = theme.init()
+local theme = require('nightfox.palette')
+local themeColors = theme.load("nightfox")
 
 local colors = {
-  white = themeColors.fg_alt,
-  bg = themeColors.bg,
-  bg_highlight = themeColors.bg_highlight,
+  white = themeColors.fg2,
+  bg = themeColors.bg1,
+  bg_highlight = themeColors.bg3,
   normal = themeColors.blue,
   insert = themeColors.cyan,
   command = themeColors.orange,
   visual = themeColors.magenta,
   replace = themeColors.red,
-  diffAdd = themeColors.git.add,
-  diffModified = themeColors.git.change,
-  diffDeleted = themeColors.git.delete,
+  diffAdd = themeColors.green_br,
+  diffModified = themeColors.cyan,
+  diffDeleted = themeColors.red,
   trace = themeColors.orange,
   hint = themeColors.cyan,
   info = themeColors.green_br,
