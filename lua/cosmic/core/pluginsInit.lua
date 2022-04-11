@@ -12,6 +12,23 @@ return packer.startup(function()
   })
 
   use({
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup({
+        enable = true,
+      })
+    end
+  })
+
+
+  use({
+    'sindrets/diffview.nvim',
+    config = function()
+      require('cosmic.plugins.diffview')
+    end,
+  })
+
+  use({
     'tami5/lspsaga.nvim',
     config = function ()
       require('cosmic.plugins.lspsaga')
@@ -32,14 +49,20 @@ return packer.startup(function()
   })
 
   use({
-      'sbdchd/neoformat',
+    'sbdchd/neoformat',
+    ft = 'python',
   })
-  -- initialize theme plugins
-  require('cosmic.theme.plugins').init(use, user_config)
 
-    use({
-        'rhysd/vim-clang-format',
-    })
+  use({
+      'rhysd/vim-clang-format',
+  })
+
+  use({
+    'EdenEast/nightfox.nvim',
+    config = function()
+      require('cosmic.plugins.nightfox')
+    end,
+  })
 
   use({
     'rcarriga/nvim-notify',
@@ -60,14 +83,13 @@ return packer.startup(function()
 
   -- theme stuff
   use({ -- statusline
-    'NTBBloodbath/galaxyline.nvim',
-    branch = 'main',
+    'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require('cosmic.plugins.galaxyline')
+      require('cosmic.plugins.lualine')
     end,
     after = user_config.theme,
-    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'galaxyline'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'lualine'),
   })
 
   -- Better Buffer Delete
@@ -307,6 +329,21 @@ return packer.startup(function()
       require('cosmic.plugins.vimtex')
     end,
   })
+
+  use({
+    'ggandor/lightspeed.nvim',
+  })
+
+  use({
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim'
+    },
+    config = function()
+      require('cosmic.plugins.neogit')
+    end,
+  })
   -- lang/syntax stuff
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -335,10 +372,9 @@ return packer.startup(function()
   use({
       'ahmedkhalf/project.nvim',
       config = function ()
-          require('project_nvim')
+          require('project_nvim').setup{}
       end,
   })
-
 
   -- todo highlights
   use({
@@ -350,23 +386,21 @@ return packer.startup(function()
     event = 'BufWinEnter',
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'todo-comments'),
   })
+  use({
+    'arkav/lualine-lsp-progress',
+  })
   -- colorized hex codes
   use({
     'norcalli/nvim-colorizer.lua',
     opt = true,
-    cmd = { 'ColorizerToggle' },
+    cmd = {
+      'ColorizerAttachToBuffer',
+      'ColorizerToggle',
+    },
     config = function()
       require('colorizer').setup()
     end,
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'colorizer'),
-  })
-  -- Debugging
-  use({
-    "mfussenegger/nvim-dap",
-    -- event = "BufWinEnter",
-    config = function()
-      require("cosmic.plugins.dap")
-    end,
   })
 
   if user_config.add_plugins and not vim.tbl_isempty(user_config.add_plugins) then

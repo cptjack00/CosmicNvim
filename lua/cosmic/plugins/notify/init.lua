@@ -11,9 +11,9 @@ require('notify').setup(u.merge({
     TRACE = icons.trace,
   },
   stages = 'slide',
-  background_colour = require('cosmic.theme.colors').bg,
+  -- background_colour = require('cosmic.theme.colors').bg,
 }, config.notify or {}))
 
 vim.notify = require('notify')
 
-require('cosmic.plugins.notify.highlights')
+-- require('cosmic.plugins.notify.highlights')

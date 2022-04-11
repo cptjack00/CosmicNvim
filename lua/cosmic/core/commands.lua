@@ -35,6 +35,8 @@ vim.cmd [[ au BufEnter * DisableVirtualText ]]
 vim.cmd [[ au BufEnter * imap <silent><script><expr> <C-J> copilot#Accept("\<CR>") ]]
 vim.cmd [[ autocmd Filetype tex,bib SetTexMapping ]]
 
+vim.cmd [[ au BufEnter * ColorizerAttachToBuffer ]]
+
 local wkl = require("which-key")
 local wkli = require("cosmic.plugins.which-key")
 function WhichKeyTex()

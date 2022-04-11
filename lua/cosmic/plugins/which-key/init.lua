@@ -10,7 +10,7 @@ local setup = {
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     presets = {
-      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       motions = true, -- adds help for motions
       text_objects = true, -- help for text objects triggered after entering an operator
       windows = true, -- default bindings on <c-w>
@@ -110,10 +110,22 @@ local mappings = {
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle Undo Tree" },
+  ["n"] = { "<cmd>Neogit<cr>", "Neogit"},
+
+  d = {
+    name = "Diffview",
+    o = { "<cmd>DiffviewOpen<cr>", "Open" },
+    c = { "<cmd>DiffviewClose<cr>", "Close" },
+    h = { "<cmd>DiffviewFileHistory<cr>", "File History" },
+    f = { "<cmd>DiffviewFocusFiles<cr>", "Focus Files" },
+    l = { "<cmd>DiffviewLog<cr>", "Log" },
+    r = { "<cmd>DiffviewRefresh<cr>", "Refresh" },
+    t = { "<cmd>DiffviewToggleFiles<cr>", "Toggle Files" },
+  },
 
   p = {
     name = "Packer",
@@ -146,25 +158,25 @@ local mappings = {
       "Diff",
     },
   },
-  D = {
-    name = "Debug",
-    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-    d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-    g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-    p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },
-    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-    s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-    q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    S = { "<cmd>lua require'dap.ui.variables'.scopes()<cr>", "Scope" },
-    h = { "<cmd>lua require'dap.ui.variables'.hover(function() return vim.fn.expand('<cexpr>') end)<cr>", "Visual hover" },
-    v = { "<cmd>lua require'dap.ui.variables'.visual_hover()<cr>", "Visual hover" },
-  },
+  -- D = {
+  --   name = "Debug",
+  --   t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+  --   b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+  --   c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+  --   C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+  --   d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+  --   g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+  --   i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+  --   o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+  --   u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+  --   p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },
+  --   r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+  --   s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
+  --   q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+  --   S = { "<cmd>lua require'dap.ui.variables'.scopes()<cr>", "Scope" },
+  --   h = { "<cmd>lua require'dap.ui.variables'.hover(function() return vim.fn.expand('<cexpr>') end)<cr>", "Visual hover" },
+  --   v = { "<cmd>lua require'dap.ui.variables'.visual_hover()<cr>", "Visual hover" },
+  -- },
 
   l = {
     name = "LSP",
