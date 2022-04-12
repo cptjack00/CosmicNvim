@@ -20,7 +20,6 @@ return packer.startup(function()
     end
   })
 
-
   use({
     'sindrets/diffview.nvim',
     config = function()
@@ -119,10 +118,6 @@ return packer.startup(function()
       'NvimTreeToggle',
     },
     disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'nvim-tree'),
-  })
-
-  use({
-      'easymotion/vim-easymotion',
   })
 
   use({
