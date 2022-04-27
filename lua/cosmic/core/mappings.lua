@@ -39,4 +39,4 @@ map('n', '<leader>cfm', ':ClangFormat<CR>')
 -- terminals
 map("n", '<leader>W', ":Telescope terms <CR>")
 
-map("n", "<leader>tg", ":TagbarToggle <CR>")
+map("n", "<leader>tg", ":Vista nvim_lsp <CR>")

@@ -23,7 +23,7 @@ require('nightfox').setup({
     },
     modules = {             -- List of various plugins and additional options
       barbar = true,
-      bufferline = true,
+      -- bufferline = true,
       cmp = true,
       dashboard = true,
       lsp_saga = true,
@@ -42,4 +42,4 @@ require('nightfox').setup({
 })
 
 -- setup must be called before loading
-vim.cmd("colorscheme duskfox")
+vim.cmd("colorscheme nightfox")

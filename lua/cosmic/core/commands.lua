@@ -32,7 +32,7 @@ vim.cmd [[ autocmd Filetype cpp,c,python setlocal expandtab tabstop=4 shiftwidth
 --
 vim.cmd [[ au BufEnter * DisableVirtualText ]]
 
-vim.cmd [[ au BufEnter * imap <silent><script><expr> <C-J> copilot#Accept("\<CR>") ]]
+vim.cmd [[ au InsertEnter * imap <silent><script><expr> <C-J> copilot#Accept("\<CR>") ]]
 vim.cmd [[ autocmd Filetype tex,bib SetTexMapping ]]
 
 vim.cmd [[ au BufEnter * ColorizerAttachToBuffer ]]

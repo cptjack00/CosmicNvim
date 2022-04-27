@@ -31,10 +31,13 @@ local default_cmp_opts = {
       select = true,
     }),
   },
-  documentation = {
-    border = user_config.border,
-    winhighlight = 'FloatBorder:FloatBorder,Normal:Normal',
+  window = {
+    documentation = true,
   },
+  -- documentation = {
+  --   border = user_config.border,
+  --   winhighlight = 'FloatBorder:FloatBorder,Normal:Normal',
+  -- },
   experimental = {
     ghost_text = true,
   },
